@@ -55,16 +55,22 @@ const SERVICES = [
     image: "/freio.png"
   },
   {
-    title: "Troca de Óleo",
+    title: "Troca de Óleo e Filtro",
     description: "Lubrificantes de alta performance para garantir a saúde do seu motor.",
     icon: <Droplets className="w-8 h-8" />,
-    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800"
+    image: "/oleo.png"
   },
   {
     title: "Ar-Condicionado",
     description: "Higienização completa para um ar puro e sistema eficiente em todas as estações.",
     icon: <Wind className="w-8 h-8" />,
     image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    title: "Acessórios",
+    description: "Vendas de Baterias, Palhetas, Lampadas e LEDs e muito mais.",
+    icon: <Disc className="w-8 h-8" />,
+    image: "/led1.png"
   }
 ];
 
@@ -105,9 +111,9 @@ export default function App() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#servicos" className="text-base font-bold text-black hover:text-primary transition-colors">Serviços</a>
-            <a href="#sobre" className="text-base font-bold text-black hover:text-primary transition-colors">Sobre</a>
-            <a href="#contato" className="text-base font-bold text-black hover:text-primary transition-colors">Contato</a>
+            <a href="#servicos" className="text-base font-bold text-foreground hover:text-primary transition-colors">Serviços</a>
+            <a href="#sobre" className="text-base font-bold text-foreground hover:text-primary transition-colors">Sobre</a>
+            <a href="#contato" className="text-base font-bold text-foreground hover:text-primary transition-colors">Contato</a>
             <Button render={<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" />} nativeButton={false} className="rounded-full px-6 py-6 font-bold text-base">
               <svg 
                 viewBox="0 0 24 24" 
@@ -133,12 +139,12 @@ export default function App() {
                   <a href="#contato" className="text-lg font-heading font-bold hover:text-primary transition-colors">Contato</a>
                   <Separator className="my-2" />
                   <div className="flex flex-col gap-4">
-                    <p className="text-xs text-black font-semibold uppercase tracking-wider opacity-70">Fale conosco:</p>
-                    <a href="tel:4831972315" className="flex items-center gap-3 text-base font-medium hover:text-primary transition-colors">
+                    <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Fale conosco:</p>
+                    <a href="tel:4831972315" className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary transition-colors">
                       <Phone className="w-5 h-5 text-primary" />
                       (48) 3197-2315
                     </a>
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-base font-medium hover:text-primary transition-colors">
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-base font-medium text-foreground hover:text-primary transition-colors">
                       <svg 
                         viewBox="0 0 24 24" 
                         className="w-5 h-5 fill-primary"
@@ -158,16 +164,16 @@ export default function App() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
             src="/paulolopes.png" 
             alt="Premium Tire and Wheel Shop" 
-            className="w-full h-full object-cover object-right md:object-[90%_center]"
+            className="w-full h-full object-cover object-right md:object-[110%_center] opacity-40 md:opacity-100"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-white/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent hidden md:block" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent hidden md:block" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -178,13 +184,13 @@ export default function App() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-7 xl:col-span-6"
             >
-              <Badge variant="outline" className="mb-6 border-primary/50 text-black bg-primary/20 px-4 py-1 rounded-full backdrop-blur-sm">
+              <Badge variant="outline" className="mb-6 border-primary/50 text-foreground bg-primary/20 px-4 py-1 rounded-full backdrop-blur-sm">
                 Referência em Paulo Lopes - SC
               </Badge>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.9] tracking-tighter mb-6 text-black">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.9] tracking-tighter mb-6 text-foreground">
                 CUIDADO <span className="text-primary">PREMIUM</span> PARA O SEU VEÍCULO.
               </h1>
-              <p className="text-lg md:text-xl text-black mb-8 max-w-xl leading-relaxed">
+              <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl leading-relaxed">
                 Especialistas em pneus, geometria 3D e manutenção automotiva completa. Tecnologia de ponta e atendimento de confiança desde 2024.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -192,7 +198,7 @@ export default function App() {
                   Agendar Serviço
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full text-lg px-8 h-14 backdrop-blur-sm bg-black/5 text-black border-black/20 hover:bg-black/10" nativeButton={false} render={<a href="#servicos" />}>
+                <Button size="lg" variant="outline" className="rounded-full text-lg px-8 h-14 backdrop-blur-sm bg-white/5 text-foreground border-white/20 hover:bg-white/10" nativeButton={false} render={<a href="#servicos" />}>
                   Ver Serviços
                 </Button>
               </div>
@@ -206,16 +212,16 @@ export default function App() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="bg-white/90 backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl"
+            className="bg-card/90 backdrop-blur-xl border border-border p-6 rounded-2xl shadow-2xl"
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                 <CheckCircle2 className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-black font-medium">Atendimento</p>
+                <p className="text-sm text-muted-foreground font-medium">Atendimento</p>
                 <p className="text-xl font-bold text-foreground">Segunda a Sábado</p>
-                <p className="text-xs text-black font-medium">08:00 – 18:00 (Sáb até 12h)</p>
+                <p className="text-xs text-muted-foreground font-medium">08:00 – 18:00 (Sáb até 12h)</p>
               </div>
             </div>
             <Separator className="mb-4 opacity-50" />
@@ -224,7 +230,7 @@ export default function App() {
                 <Navigation className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-black font-medium">Localização</p>
+                <p className="text-sm text-muted-foreground font-medium">Localização</p>
                 <p className="text-xl font-bold text-foreground">Paulo Lopes</p>
               </div>
             </div>
@@ -237,7 +243,7 @@ export default function App() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Serviços Especializados</h2>
-            <p className="text-black text-lg">
+            <p className="text-muted-foreground text-lg">
               Oferecemos uma gama completa de soluções para garantir a performance e segurança do seu automóvel.
             </p>
           </div>
@@ -259,8 +265,8 @@ export default function App() {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent" />
-                    <div className="absolute bottom-4 left-4 text-black">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    <div className="absolute bottom-4 left-4 text-foreground">
                       <div className="bg-primary p-2 rounded-lg inline-block mb-2">
                         {service.icon}
                       </div>
@@ -268,7 +274,7 @@ export default function App() {
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
-                    <p className="text-black leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
                   </CardContent>
@@ -300,9 +306,9 @@ export default function App() {
               <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
               <div className="absolute -top-8 -left-8 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
               
-              <div className="absolute bottom-8 left-8 bg-background/90 backdrop-blur-md p-6 rounded-2xl border border-border shadow-xl max-w-[240px]">
+              <div className="absolute bottom-8 left-8 bg-card/90 backdrop-blur-md p-6 rounded-2xl border border-border shadow-xl max-w-[240px]">
                 <p className="text-4xl font-bold text-primary mb-1">2024</p>
-                <p className="text-sm font-medium text-black uppercase tracking-wider">Referência em manutenção automotiva</p>
+                <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Referência em manutenção automotiva</p>
               </div>
             </motion.div>
 
@@ -311,9 +317,9 @@ export default function App() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Badge className="mb-4 bg-primary/20 text-black border-primary/50 hover:bg-primary/30">Nossa História</Badge>
-              <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-black">Compromisso com a sua Segurança</h2>
-              <div className="space-y-6 text-lg text-black leading-relaxed">
+              <Badge className="mb-4 bg-primary/20 text-foreground border-primary/50 hover:bg-primary/30">Nossa História</Badge>
+              <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-foreground">Compromisso com a sua Segurança</h2>
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
                   A <span className="text-foreground font-bold">Pneus Center Paulo Lopes</span> nasceu com o propósito de elevar o padrão de manutenção automotiva na região. Especializados em pneus e serviços mecânicos essenciais, unimos tecnologia e experiência para cuidar do seu patrimônio.
                 </p>
@@ -347,14 +353,14 @@ export default function App() {
       {/* CTA Section */}
       <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-background via-transparent to-transparent" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h2 className="text-3xl md:text-6xl font-heading font-bold mb-8 max-w-4xl mx-auto leading-tight">
             PRONTO PARA DAR AO SEU CARRO O TRATAMENTO QUE ELE MERECE?
           </h2>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" variant="secondary" className="rounded-full text-xl px-12 h-16 shadow-xl bg-white text-black hover:bg-gray-100 border-none font-bold" nativeButton={false} render={<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" />}>
+            <Button size="lg" variant="secondary" className="rounded-full text-xl px-12 h-16 shadow-xl bg-foreground text-background hover:bg-foreground/90 border-none font-bold" nativeButton={false} render={<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" />}>
               <svg 
                 viewBox="0 0 24 24" 
                 className="w-7 h-7 mr-3 fill-[#25D366]"
@@ -364,8 +370,8 @@ export default function App() {
               </svg>
               Falar no WhatsApp
             </Button>
-            <Button size="lg" variant="secondary" className="rounded-full text-xl px-12 h-16 shadow-xl bg-white text-black hover:bg-gray-100 border-none font-bold" nativeButton={false} render={<a href="tel:4831972315" />}>
-              <Phone className="w-6 h-6 mr-3 text-black" />
+            <Button size="lg" variant="secondary" className="rounded-full text-xl px-12 h-16 shadow-xl bg-foreground text-background hover:bg-foreground/90 border-none font-bold" nativeButton={false} render={<a href="tel:4831972315" />}>
+              <Phone className="w-6 h-6 mr-3 text-background" />
               Ligar Agora
             </Button>
           </div>
@@ -386,10 +392,10 @@ export default function App() {
                       <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-bold text-lg text-black">Endereço</p>
-                      <p className="text-black">Rua Bertoldo Ernesto dos Santos, 740</p>
-                      <p className="text-black">Paulo Lopes – SC</p>
-                      <p className="text-black">CEP: 88490-000</p>
+                      <p className="font-bold text-lg text-foreground">Endereço</p>
+                      <p className="text-muted-foreground">Rua Bertoldo Ernesto dos Santos, 740</p>
+                      <p className="text-muted-foreground">Paulo Lopes – SC</p>
+                      <p className="text-muted-foreground">CEP: 88490-000</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -397,9 +403,9 @@ export default function App() {
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-bold text-lg text-black">Telefones</p>
-                      <a href="tel:4831972315" className="block text-black hover:text-primary transition-colors">(48) 3197-2315</a>
-                      <a href="tel:48991125805" className="block text-black hover:text-primary transition-colors">(48) 99112-5805</a>
+                      <p className="font-bold text-lg text-foreground">Telefones</p>
+                      <a href="tel:4831972315" className="block text-muted-foreground hover:text-primary transition-colors">(48) 3197-2315</a>
+                      <a href="tel:48991125805" className="block text-muted-foreground hover:text-primary transition-colors">(48) 99112-5805</a>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -407,8 +413,8 @@ export default function App() {
                       <Instagram className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-bold text-lg text-black">Redes Sociais</p>
-                      <a href="https://www.instagram.com/pneuscenterpl" target="_blank" rel="noopener noreferrer" className="text-black hover:text-primary transition-colors">@pneuscenterpl</a>
+                      <p className="font-bold text-lg text-foreground">Redes Sociais</p>
+                      <a href="https://www.instagram.com/pneuscenterpl" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">@pneuscenterpl</a>
                     </div>
                   </div>
                 </div>
@@ -424,8 +430,8 @@ export default function App() {
                 <div className="space-y-3">
                   {HOURS.map((item, idx) => (
                     <div key={idx} className="flex justify-between items-center">
-                      <span className={`text-sm ${item.closed ? 'text-black opacity-60' : 'font-medium text-black'}`}>{item.day}</span>
-                      <span className={`text-sm ${item.closed ? 'text-destructive font-bold' : 'text-black'}`}>{item.time}</span>
+                      <span className={`text-sm ${item.closed ? 'text-muted-foreground opacity-60' : 'font-medium text-foreground'}`}>{item.day}</span>
+                      <span className={`text-sm ${item.closed ? 'text-destructive font-bold' : 'text-muted-foreground'}`}>{item.time}</span>
                     </div>
                   ))}
                 </div>
@@ -447,7 +453,7 @@ export default function App() {
                       <MapPin className="w-8 h-8 text-primary animate-bounce" />
                     </div>
                     <h4 className="text-2xl font-bold mb-2">Visite nossa Loja</h4>
-                    <p className="text-black mb-8">
+                    <p className="text-muted-foreground mb-8">
                       Estamos localizados em Paulo Lopes. Atendemos toda a região de Garopaba, Palhoça e Imbituba.
                     </p>
                     <Button className="w-full rounded-full h-12" nativeButton={false} render={<a href="https://www.google.com/maps/search/?api=1&query=Pneus+Center+Paulo+Lopes+Rua+Bertoldo+Ernesto+dos+Santos+740" target="_blank" rel="noopener noreferrer" />}>
@@ -469,19 +475,19 @@ export default function App() {
               <img 
                 src="/paulolopes.png" 
                 alt="Pneus Center Paulo Lopes Logo" 
-                className="h-[136px] w-auto object-contain brightness-0"
+                className="h-[136px] w-auto object-contain"
                 referrerPolicy="no-referrer"
               />
-              <p className="text-xs text-black max-w-xs text-center md:text-left">
+              <p className="text-xs text-muted-foreground max-w-xs text-center md:text-left">
                 Comércio de Pneus e Manutenção Automotiva Completa. Aceitamos cartões de crédito, débito e pagamentos por aproximação (NFC).
               </p>
             </div>
             
             <div className="flex gap-8">
-              <a href="https://www.instagram.com/pneuscenterpl" target="_blank" rel="noopener noreferrer" className="text-black hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/pneuscenterpl" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="w-[72px] h-[72px]" />
               </a>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-black hover:text-primary transition-colors">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <svg 
                   viewBox="0 0 24 24" 
                   className="w-[72px] h-[72px] fill-current"
@@ -492,7 +498,7 @@ export default function App() {
               </a>
             </div>
 
-            <p className="text-sm text-black">
+            <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} Pneus Center Paulo Lopes. Todos os direitos reservados.
             </p>
           </div>
